@@ -6,6 +6,6 @@ import (
 
 type RouteCollection interface {
 	Add(e *echo.Echo) *echo.Echo
-	SetApplication(a ContainerInterface)
-	GetApplication() ContainerInterface
+	SetApplication(a *Container)
+	GetApplication() *Container
 }

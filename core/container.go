@@ -5,11 +5,9 @@ import (
 	"sync"
 )
 
-const STATE_OPEN = 1
+const STATE_FREEZE = 1
 
-const STATE_LOCK = 0
-
-const ERROR_MESSAGE_STATE_FROZEN = "Can't add or modified %s. All service already locked"
+const ERROR_MESSAGE_STATE_FROZEN = "Can't add or modified %s. All service have been frozen"
 
 type ContainerInterface interface {
 	Add(name string, object interface{})
@@ -24,8 +22,8 @@ type Container struct {
 }
 
 // Add a service
-func (c *Container) Add(name string, object interface{}) {
-	if c.state == STATE_LOCK {
+func (c *Container) Set(name string, object interface{}) {
+	if c.state == STATE_FREEZE {
 		panic(fmt.Sprintf(ERROR_MESSAGE_STATE_FROZEN, name))
 	}
 
@@ -38,15 +36,6 @@ func (c *Container) Add(name string, object interface{}) {
 	c.mux.Unlock()
 }
 
-func (c *Container) Remove(name string) {
-	if c.state == STATE_LOCK {
-		panic(fmt.Sprintf(ERROR_MESSAGE_STATE_FROZEN, name))
-	}
-	c.mux.Lock()
-	delete(c.m, name)
-	c.mux.Unlock()
-}
-
 func (c *Container) Get(name string) (object interface{}, ok bool) {
 	c.mux.RLock()
 	object, ok = c.m[name]
@@ -55,7 +44,11 @@ func (c *Container) Get(name string) (object interface{}, ok bool) {
 	return object, ok
 }
 
+func (c *Container) SetState(state int) {
+	c.state = state
+}
+
 type ServiceProvider interface {
 	GetName() string
-	Register(app Container) interface{}
+	Register(app *Container) interface{}
 }
