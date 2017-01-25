@@ -17,6 +17,10 @@ func main() {
 	App.Echo.Use(middleware.Logger())
 	App.Echo.Use(middleware.Recover())
 
+	// set container
+	App.Container = new(Container)
+
+	// add routes
 	App.AddRoute(new(Users))
 
 	// Start server

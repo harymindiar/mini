@@ -5,7 +5,9 @@ import (
 	"net/http"
 )
 
-type Users struct{}
+type Users struct{
+	Base
+}
 
 func (u *Users) Add(e *echo.Echo) *echo.Echo {
 	e.GET("/users", func(c echo.Context) error {
