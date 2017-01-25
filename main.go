@@ -7,8 +7,6 @@ import (
 	. "github.com/harymindiar/mini/routes"
 )
 
-var Kernel Kernel
-
 func main() {
 
 	App := new(Kernel)
