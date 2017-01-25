@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-type Users struct{
+type Users struct {
 	Base
 }
 
