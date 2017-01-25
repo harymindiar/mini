@@ -1,4 +1,4 @@
-package routes
+package core
 
 import (
 	"github.com/labstack/echo"
@@ -6,4 +6,6 @@ import (
 
 type RouteCollection interface {
 	Add(e *echo.Echo) *echo.Echo
+	SetApplication(a *Container)
+	GetApplication() *Container
 }
