@@ -7,4 +7,3 @@ import (
 type RouteCollection interface {
 	Add(e *echo.Echo) *echo.Echo
 }
-

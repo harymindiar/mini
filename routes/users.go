@@ -1,11 +1,11 @@
 package routes
 
 import (
-	"net/http"
 	"github.com/labstack/echo"
+	"net/http"
 )
 
-type Users struct {}
+type Users struct{}
 
 func (u *Users) Add(e *echo.Echo) *echo.Echo {
 	e.GET("/users", func(c echo.Context) error {

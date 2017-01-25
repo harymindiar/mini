@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/labstack/echo"
-	"github.com/labstack/echo/middleware"
 	. "github.com/harymindiar/mini/core"
 	. "github.com/harymindiar/mini/routes"
+	"github.com/labstack/echo"
+	"github.com/labstack/echo/middleware"
 )
 
 func main() {
