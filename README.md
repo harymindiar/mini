@@ -1,5 +1,5 @@
 # mini
-Skeleton application web, based [Echo] Go web framework. 
+Skeleton application, based [Echo] Go web framework. 
 
 I'm just try to organize the routes and services (inspired by service container from [Vertebrae])
 
