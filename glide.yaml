@@ -1,4 +1,0 @@
-package: github.com/harymindiar/mini
-import:
-- package: github.com/labstack/echo
-  version: ~3.0
