@@ -9,6 +9,8 @@ func (a *Application) RegisterCoreProvider() {
 	a.ProviderCollection.Add(&provider.Config{
 		Config: a.Application.Config,
 	})
+	// register database provider when config provider registered
+	a.ProviderCollection.Add(&provider.Database{})
 }
 
 // RegisterProvider to register provider

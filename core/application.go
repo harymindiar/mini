@@ -14,6 +14,7 @@ type Config interface {
 	SetConfigName(string)
 	AddConfigPath(string)
 	ReadInConfig() error
+	GetStringMap(key string) map[string]interface{}
 }
 
 // Router interface of router
@@ -82,6 +83,9 @@ func (c *Container) Get(name string) (object interface{}, ok bool) {
 	c.mux.RLock()
 	object, ok = c.m[name]
 	c.mux.RUnlock()
+	if !ok {
+		return nil, false
+	}
 
 	return object, ok
 }
