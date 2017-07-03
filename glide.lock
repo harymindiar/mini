@@ -1,8 +1,10 @@
-hash: c38ae81598c54bf5581ee6b642a8ecc20869d918978e4b7073b84fb86e0f48b7
-updated: 2017-06-30T16:17:11.161355272+07:00
+hash: f7f3f72282e6c5e507eba70e6156e985568cb308e6cb526ec26a9a1792a61388
+updated: 2017-07-03T14:49:54.268486824+07:00
 imports:
 - name: github.com/fsnotify/fsnotify
   version: 4da3e2cfbabc9f751898f250b49f2439785783a1
+- name: github.com/go-sql-driver/mysql
+  version: bf7f34fef176d890dfcc6e94319ac747291bc09a
 - name: github.com/gorilla/context
   version: 08b5f424b9271eedf6f9f0ce86cb9396ed337a42
 - name: github.com/gorilla/handlers
@@ -39,11 +41,11 @@ imports:
 - name: github.com/spf13/viper
   version: c1de95864d73a5465492829d7cb2dd422b19ac96
 - name: golang.org/x/sys
-  version: 90796e5a05ce440b41c768bd9af257005e470461
+  version: 0e0164865330d5cf1c00247be08330bf96e2f87c
   subpackages:
   - unix
 - name: golang.org/x/text
-  version: 6353ef0f924300eea566d3438817aa4d3374817e
+  version: 2bf8f2a19ec09c670e931282edfe6567f6be21c9
   subpackages:
   - transform
   - unicode/norm
