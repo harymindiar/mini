@@ -16,6 +16,11 @@ type Config interface {
 	ReadInConfig() error
 }
 
+// Router interface of router
+type Router interface {
+	AddHandlerFunc(path string, f func(http.ResponseWriter, *http.Request))
+}
+
 // Application core of application
 type Application struct {
 	Environment        string
