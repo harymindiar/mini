@@ -1,5 +1,5 @@
 # mini
-Skeleton application, based [Echo] Go web framework. 
+Skeleton application, based [Gorilla] Go web toolkit.
 
 I'm just try to organize the routes and services (inspired by service container from [Vertebrae])
 
@@ -11,5 +11,5 @@ $ ./main
 ```
 
 
-[Echo]: <https://github.com/labstack/echo>
+[Gorilla]: <http://www.gorillatoolkit.org/>
 [Vertebrae]: <https://github.com/EwanValentine/Vertebrae>
