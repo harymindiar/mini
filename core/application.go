@@ -2,6 +2,7 @@ package core
 
 import (
 	"github.com/spf13/viper"
+	"log"
 	"net/http"
 	"sync"
 )
@@ -46,7 +47,17 @@ func NewApp(configPath string) *Application {
 
 // Serve serve the handler
 func (a *Application) Serve(h http.Handler) {
+	log.Printf("Start to serve on port :%s", a.Port)
 	http.ListenAndServe(":"+a.Port, h)
+}
+
+// IsDevelopment get current enviroment is development or not
+func (a Application) IsDevelopment() bool {
+	if a.Environment == "dev" {
+		return true
+	}
+
+	return false
 }
 
 // Container to hold services
