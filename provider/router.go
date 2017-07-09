@@ -12,18 +12,18 @@ const (
 	RouterServiceName = "core.router"
 )
 
-// Route provider of routes
-type Route struct {
+// Router provider of routes
+type Router struct {
 	Base
 }
 
 // GetName get name of provider
-func (r Route) GetName() string {
+func (r Router) GetName() string {
 	return RouterProviderName
 }
 
 // Boot boot the provider
-func (r *Route) Boot() error {
+func (r *Router) Boot() error {
 
 	r.Container.Set(RouterServiceName, mux.NewRouter())
 
