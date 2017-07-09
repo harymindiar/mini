@@ -1,5 +1,5 @@
 # mini
-Skeleton application, based [Gorilla] Go web toolkit.
+Skeleton application, based [Gorilla] Go web toolkit + [Negroni] as Middleware HTTP.
 
 I'm just try to organize the routes and services (inspired by service container from [Vertebrae])
 
