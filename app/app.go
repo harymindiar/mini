@@ -1,9 +1,7 @@
 package app
 
 import (
-	"github.com/gorilla/handlers"
 	"github.com/harymindiar/mini/core"
-	"net/http"
 )
 
 // ConfigPath path of configuration file
@@ -25,6 +23,5 @@ func NewApp() *Application {
 func (a *Application) Run() {
 	a.RegisterCoreProvider()
 	a.RegisterProvider()
-	a.RegisterHandler()
-	http.ListenAndServe(":"+a.Port, handlers.CORS()(a.Router))
+	a.Serve(a.Router())
 }

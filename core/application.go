@@ -1,7 +1,6 @@
 package core
 
 import (
-	"github.com/gorilla/mux"
 	"github.com/spf13/viper"
 	"net/http"
 	"sync"
@@ -17,17 +16,11 @@ type Config interface {
 	GetStringMap(key string) map[string]interface{}
 }
 
-// Router interface of router
-type Router interface {
-	AddHandlerFunc(path string, f func(http.ResponseWriter, *http.Request))
-}
-
 // Application core of application
 type Application struct {
 	Environment        string
 	Port               string
 	Debug              bool
-	Router             *mux.Router
 	Config             Config
 	Container          *Container
 	ProviderCollection *ProviderCollection
@@ -36,7 +29,6 @@ type Application struct {
 // NewApp create kernel
 func NewApp(configPath string) *Application {
 	a := &Application{
-		Router:    mux.NewRouter(),
 		Config:    viper.New(),
 		Container: NewContainer(),
 	}
@@ -52,10 +44,9 @@ func NewApp(configPath string) *Application {
 	return a
 }
 
-// AddHandlerFunc to add handler
-func (a *Application) AddHandlerFunc(path string, f func(http.ResponseWriter,
-	*http.Request)) {
-	a.Router.HandleFunc(path, f)
+// Serve serve the handler
+func (a *Application) Serve(h http.Handler) {
+	http.ListenAndServe(":"+a.Port, h)
 }
 
 // Container to hold services
