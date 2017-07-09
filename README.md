@@ -11,8 +11,9 @@ $ ./main
 ```
 
 ### Tips
-Middleware, how we deal with Middleware by specific routes using [Negroni], here the link https://www.calhoun.io/route-specific-middleware/
+Middleware, how we deal with Middleware by specific routes using [Negroni], here the [link-article-middleware]
 
 [Gorilla]: <http://www.gorillatoolkit.org/>
 [Vertebrae]: <https://github.com/EwanValentine/Vertebrae>
 [Negroni]: <https://github.com/urfave/negroni>
+[link-article-middleware]: <https://www.calhoun.io/route-specific-middleware/>
