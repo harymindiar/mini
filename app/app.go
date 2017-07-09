@@ -23,5 +23,5 @@ func NewApp() *Application {
 func (a *Application) Run() {
 	a.RegisterCoreProvider()
 	a.RegisterProvider()
-	a.Serve(a.Router())
+	a.Serve(a.Handlers())
 }

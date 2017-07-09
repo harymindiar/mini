@@ -3,14 +3,12 @@ package app
 import (
 	"github.com/gorilla/mux"
 	"github.com/harymindiar/mini/handler"
-	"github.com/harymindiar/mini/provider"
+	"net/http"
 )
 
-// Router here you need to register all the route of application
-func (a *Application) Router() *mux.Router {
-	// get router service
-	container, _ := a.Container.Get(provider.RouterServiceName)
-	router := container.(*mux.Router)
+// Handlers here you need to register all the route of application
+func (a *Application) Handlers() http.Handler {
+	router := mux.NewRouter()
 
 	baseHandler := handler.NewHandler(a.Container)
 	router.HandleFunc("/", baseHandler.Index)

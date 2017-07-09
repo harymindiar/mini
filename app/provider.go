@@ -11,8 +11,6 @@ func (a *Application) RegisterCoreProvider() {
 	})
 	// register database provider when config provider registered
 	a.ProviderCollection.Add(&provider.Database{})
-
-	a.ProviderCollection.Add(&provider.Router{})
 }
 
 // RegisterProvider to register provider
